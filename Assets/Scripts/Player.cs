@@ -41,4 +41,9 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
         Destroy(other.gameObject);
     }
+
+    public float getmovementSpeed()
+    {
+       return movementSpeed;
+    }
 }

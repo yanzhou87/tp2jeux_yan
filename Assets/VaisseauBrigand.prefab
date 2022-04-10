@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 503883413226766046}
   - component: {fileID: 4051263064752407196}
   - component: {fileID: 2949467760761230207}
-  - component: {fileID: 6583728029970843180}
+  - component: {fileID: 6776415860317626396}
   m_Layer: 0
   m_Name: VaisseauBrigand
   m_TagString: Untagged
@@ -285,7 +285,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130968590457702304}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -307,7 +307,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6583728029970843180
+--- !u!114 &6776415860317626396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,6 +319,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31f91d7356a38d46b25bee2fa8089eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 15
+  rotationSpeed: 150
+  target: {fileID: 4327571385245892246, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
+  player: {fileID: 1520264310067943007, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
+  asteroid1: {fileID: 5959142091829657992, guid: a48b6d52e912ed64c8acdc2ebc2195e0, type: 3}
+  asteroid2: {fileID: 5795041691942739953, guid: 9a3b2dd607716994091a0fa5495a58a0, type: 3}
 --- !u!1 &7847812808237833053
 GameObject:
   m_ObjectHideFlags: 0
