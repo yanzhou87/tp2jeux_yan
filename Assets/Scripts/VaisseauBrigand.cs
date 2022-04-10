@@ -7,6 +7,7 @@ public class VaisseauBrigand : MonoBehaviour
     public float movementSpeed = 5f , rotationSpeed = 150f;
     public Transform target;
     public GameObject player, asteroid1,asteroid2;
+    public int life = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +22,23 @@ public class VaisseauBrigand : MonoBehaviour
        transform.LookAt(target);
        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Asteroid") || other.CompareTag("Missile"))
+        {
+            if (life != 0)
+            {
+                life--;
+                Destroy(other.gameObject);
+            }
+            else
+            { 
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+            }
+        }
+      
+    }
+
 }
