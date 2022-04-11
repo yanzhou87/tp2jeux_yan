@@ -38,8 +38,12 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Instantiate(explosion, other.transform.position, other.transform.rotation);
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+        if (other.CompareTag("brigand"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+           
     }
 
     public float getmovementSpeed()
