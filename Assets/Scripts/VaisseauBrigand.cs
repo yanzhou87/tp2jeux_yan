@@ -29,18 +29,6 @@ public class VaisseauBrigand : MonoBehaviour
         newPos.y = Mathf.Clamp(newPos.y, -5, 5);
         transform.position = newPos;
 
-       /* if (Mathf.Abs(transform.position.x) > 9f)
-        {
-            var newPos = transform.position;
-            newPos.x = -transform.position.x;
-            transform.position = newPos;
-        }
-        if (Mathf.Abs(transform.position.y) > 5f)
-        {
-            var newPos = transform.position;
-            newPos.y = -transform.position.y;
-            transform.position = newPos;
-        }*/
         Debug.Log(life) ;
     }
 
