@@ -24,12 +24,12 @@ public class VaisseauBrigand : MonoBehaviour
    
         transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
 
-     //   var newPos = transform.position;
-      //  newPos.x = Mathf.Clamp(newPos.x, -9, 9);
-      //  newPos.y = Mathf.Clamp(newPos.y, -5, 5);
-       // transform.position = newPos;
+        var newPos = transform.position;
+        newPos.x = Mathf.Clamp(newPos.x, -9, 9);
+        newPos.y = Mathf.Clamp(newPos.y, -5, 5);
+        transform.position = newPos;
 
-        if (Mathf.Abs(transform.position.x) > 9f)
+       /* if (Mathf.Abs(transform.position.x) > 9f)
         {
             var newPos = transform.position;
             newPos.x = -transform.position.x;
@@ -40,13 +40,13 @@ public class VaisseauBrigand : MonoBehaviour
             var newPos = transform.position;
             newPos.y = -transform.position.y;
             transform.position = newPos;
-        }
+        }*/
         Debug.Log(life) ;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Asteroid") || other.CompareTag("Missile") || other.CompareTag("Player"))
+        if (other.CompareTag("Asteroid") || other.CompareTag("Missile"))
         {
             if (life != 0)
             {
