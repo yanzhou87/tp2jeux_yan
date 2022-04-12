@@ -44,7 +44,7 @@ public class VaisseauBrigand : MonoBehaviour
             }
             else
             {
-                Instantiate(effetVB, gameObject.transform.position, gameObject.transform.rotation);  //加入找个效果后 蓝色飞船不消失产生错误
+                Instantiate(effetVB, gameObject.transform.position, gameObject.transform.rotation); 
                
                 Destroy(other.gameObject);
                 Destroy(gameObject);
