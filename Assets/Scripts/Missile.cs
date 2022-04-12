@@ -37,5 +37,10 @@ public class Missile : MonoBehaviour
             //if (asteroid != null)
             //    asteroid.Explode();
         }
+
+        if (other.CompareTag("brigand"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
