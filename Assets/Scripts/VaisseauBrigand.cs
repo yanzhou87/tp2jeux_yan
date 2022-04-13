@@ -20,15 +20,19 @@ public class VaisseauBrigand : MonoBehaviour
     void Update()
     {
 
-         target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, 0);
-         transform.LookAt(target);
-   
-        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        if (target != null)
+        {
+            target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, 0);
+            transform.LookAt(target);
 
-        var newPos = transform.position;
-        newPos.x = Mathf.Clamp(newPos.x, -9, 9);
-        newPos.y = Mathf.Clamp(newPos.y, -5, 5);
-        transform.position = newPos;
+            transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+
+            var newPos = transform.position;
+            newPos.x = Mathf.Clamp(newPos.x, -9, 9);
+            newPos.y = Mathf.Clamp(newPos.y, -5, 5);
+            transform.position = newPos;
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

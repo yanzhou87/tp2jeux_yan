@@ -8,13 +8,13 @@ public class VaisseauTrailleurScript : MonoBehaviour
     public Vector3 distance;
     public float movementSpeed = 1f;
     public GameObject missile, tete;
-    public float temps = 5f; 
+    public float temps = 5f;
 
     // Start is called befothe first frame update
     void Start()
     {
         distance = new Vector3(3f,3f,0f);
-      
+       
     }
 
     // Update is called once per frame
@@ -45,14 +45,15 @@ public class VaisseauTrailleurScript : MonoBehaviour
             newPos.y = Mathf.Clamp(newPos.y, -5, 5);
             transform.position = newPos;
         }
-       
 
-       
-           
 
+
+        var rot = transform.rotation.eulerAngles;
+           rot.x = 0;
+           rot.y = 0;
         if (temps < 0)
         {
-            Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
+            Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0f), Quaternion.Euler(rot));
             temps = 5f;
 
         }

@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void Restart()
+    public void Recommencer()
     {
         SceneManager.LoadScene(0);
+        Debug.Log("icicicicici");
     }
  
 }

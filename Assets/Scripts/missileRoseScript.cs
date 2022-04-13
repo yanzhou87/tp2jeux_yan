@@ -31,5 +31,12 @@ public class missileRoseScript : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.CompareTag("Player"))
+        {
+            Instantiate(missileRoseEffet, other.transform.position, other.transform.rotation);
+            Destroy(gameObject);
+           
+        }
+
     }
 }
