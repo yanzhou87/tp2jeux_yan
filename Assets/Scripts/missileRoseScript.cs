@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class missileRoseScript : MonoBehaviour
 {
+    public GameObject missileRoseEffet;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class missileRoseScript : MonoBehaviour
     {
         if (other.CompareTag("Asteroid") || other.CompareTag("Player"))
         {
+            Instantiate(missileRoseEffet,other.transform.position, other.transform.rotation);
             Destroy(gameObject);
             Destroy(other.gameObject);
         }

@@ -8,7 +8,7 @@ public class VaisseauTrailleurScript : MonoBehaviour
     public Vector3 distance;
     public float movementSpeed = 1f;
     public GameObject missile, tete;
-    public float temps; 
+    public float temps = 5f; 
 
     // Start is called befothe first frame update
     void Start()
@@ -24,7 +24,7 @@ public class VaisseauTrailleurScript : MonoBehaviour
         { 
              
        
-        temps = Time.time;
+        temps -= Time.deltaTime;
 
         if (transform.position.x - player.transform.position.x >= distance.x || transform.position.y - player.transform.position.y >= distance.y)
         {
@@ -47,10 +47,14 @@ public class VaisseauTrailleurScript : MonoBehaviour
         newPos.y = Mathf.Clamp(newPos.y, -5, 5);
         transform.position = newPos;
 
-        if (temps >= 3 && temps <3.01)
+       
+           
+
+        if (temps < 0)
         {
-            Instantiate(missile,transform.position,transform.rotation);
-            temps = Time.time - Time.time;
+            Instantiate(missile, transform.position, transform.rotation);
+            temps = 5f;
+
         }
 
     }
