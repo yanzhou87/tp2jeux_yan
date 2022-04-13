@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public GameObject explosion, effetVB, effetPlayer, lifeObject, over;
     public float createLife = 10f;
     public int life = 1;
-    
+    public float tempsMax = 100f;
 
 
     // Start is called before the first frame update
@@ -38,17 +38,18 @@ public class Player : MonoBehaviour
         }
 
         createLife -= Time.deltaTime;
-
+        tempsMax -= Time.deltaTime;
         if (createLife < 0)
         {
             Instantiate(lifeObject, transform.position + new Vector3(3f,3f, 0f), transform.rotation);
             createLife = 10f;
 
         }
+        if (tempsMax < 0)
+        {
+            Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
+        }
 
-
-        Debug.Log(life);
-        
     }
 
     private void OnTriggerEnter(Collider other)
