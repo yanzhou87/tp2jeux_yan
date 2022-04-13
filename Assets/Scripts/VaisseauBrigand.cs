@@ -29,8 +29,6 @@ public class VaisseauBrigand : MonoBehaviour
         newPos.x = Mathf.Clamp(newPos.x, -9, 9);
         newPos.y = Mathf.Clamp(newPos.y, -5, 5);
         transform.position = newPos;
-
-        Debug.Log(life) ;
     }
 
     private void OnTriggerEnter(Collider other)

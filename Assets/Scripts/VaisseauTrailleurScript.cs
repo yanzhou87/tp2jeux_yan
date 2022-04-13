@@ -40,10 +40,10 @@ public class VaisseauTrailleurScript : MonoBehaviour
             transform.position = player.transform.position + distance;
             transform.Translate(transform.position * Time.deltaTime);
         }
-           // var newPos = transform.position;
-           // newPos.x = Mathf.Clamp(newPos.x, -9, 9);
-           // newPos.y = Mathf.Clamp(newPos.y, -5, 5);
-           // transform.position = newPos;
+            var newPos = transform.position;
+            newPos.x = Mathf.Clamp(newPos.x, -9, 9);
+            newPos.y = Mathf.Clamp(newPos.y, -5, 5);
+            transform.position = newPos;
         }
        
 
@@ -52,7 +52,7 @@ public class VaisseauTrailleurScript : MonoBehaviour
 
         if (temps < 0)
         {
-            Instantiate(missile, transform.position, transform.rotation);
+            Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
             temps = 5f;
 
         }

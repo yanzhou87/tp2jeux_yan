@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
             createLife = 10f;
 
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,10 +53,10 @@ public class Player : MonoBehaviour
         if (other.CompareTag("brigand"))
         {
             Instantiate(effetVB, other.transform.position, other.transform.rotation);
-            Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation);
+           
             life--;
-            if (life == 0) { Destroy(gameObject); }
-            Debug.Log(life);
+            if (life == 0) { Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation); Destroy(gameObject); }
+
             Destroy(other.gameObject);
         }
         if (other.CompareTag("life"))
@@ -63,7 +64,11 @@ public class Player : MonoBehaviour
             life++;
             Destroy(other.gameObject);
         }
-           
-    }
 
-}
+        if (other.CompareTag("MissileRose"))
+        {
+            life--;
+            if (life == 0) { Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation); Destroy(gameObject); }
+        }
+    }
+    }
