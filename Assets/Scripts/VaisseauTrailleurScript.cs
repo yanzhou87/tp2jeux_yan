@@ -13,20 +13,25 @@ public class VaisseauTrailleurScript : MonoBehaviour
     // Start is called befothe first frame update
     void Start()
     {
-        distance = new Vector3(4f,4f,0f);
+        distance = new Vector3(3f,3f,0f);
       
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (player != null)
+        { 
+             
+       
         temps = Time.time;
-        Debug.Log(temps);
+
         if (transform.position.x - player.transform.position.x >= distance.x || transform.position.y - player.transform.position.y >= distance.y)
         {
             player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
-            transform.LookAt(player);
+          
+            transform.LookAt(player, new Vector3(transform.position.x, transform.position.y , 0));
+            transform.Rotate(0f, -90f , -123f);
 
             transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
 
@@ -36,7 +41,7 @@ public class VaisseauTrailleurScript : MonoBehaviour
             transform.position = player.transform.position + distance;
             transform.Translate(transform.position * Time.deltaTime);
         }
-
+        }
         var newPos = transform.position;
         newPos.x = Mathf.Clamp(newPos.x, -9, 9);
         newPos.y = Mathf.Clamp(newPos.y, -5, 5);
