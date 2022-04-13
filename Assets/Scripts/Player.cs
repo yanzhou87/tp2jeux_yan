@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int life = 1;
     public float tempsMax = 100f;
     Collider lastOther;
+    float seco = 30f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,20 +50,22 @@ public class Player : MonoBehaviour
         }
         if (tempsMax < 0)
         {
-            float seco = 3f;
+           
             Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
-            Debug.Log("seco 3");
-            Debug.Log(seco);
-            while (seco > 0 && over != null)
-            {
-                Debug.Log("seco while");
+            /*    Debug.Log("seco 3");
                 Debug.Log(seco);
-                seco -= Time.deltaTime;
+                while (seco > 0 && over != null)
+                {
+                    Debug.Log("seco while");
+                    Debug.Log(seco);
+                    seco -= Time.deltaTime;
 
-            }
-            if (seco < 0)
+                }
+             */
+            if (tempsMax < -10f)
             {
-                SceneManager.LoadScene("SampleScene");
+                Destroy(over);
+                SceneManager.LoadScene("MenuScene");
                 Debug.Log("seco");
                 Debug.Log(seco);
             }
@@ -99,6 +102,7 @@ public class Player : MonoBehaviour
             {
                 Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(gameObject);
+                SceneManager.LoadScene("MenuScene");
                 Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
             }
         }
