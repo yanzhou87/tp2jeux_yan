@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
     public float movementSpeed = 5f, rotationSpeed = 150f;
 
     public GameObject missile, canon;
-    public GameObject explosion, effetVB, effetPlayer;
+    public GameObject explosion, effetVB, effetPlayer, lifeObject;
+    public float createLife = 10f;
+    public int life = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,15 @@ public class Player : MonoBehaviour
         {
             Instantiate(missile, canon.transform.position, canon.transform.rotation);
         }
+
+        createLife -= Time.deltaTime;
+
+        if (createLife < 0)
+        {
+            Instantiate(lifeObject, transform.position + new Vector3(2f,2f, 0f), transform.rotation);
+            createLife = 10f;
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,14 +53,17 @@ public class Player : MonoBehaviour
         {
             Instantiate(effetVB, other.transform.position, other.transform.rotation);
             Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
+            life--;
+            if (life == 0) { Destroy(gameObject); }
+          
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("life"))
+        {
+            life++;
             Destroy(other.gameObject);
         }
            
     }
 
-    public float getmovementSpeed()
-    {
-       return movementSpeed;
-    }
 }

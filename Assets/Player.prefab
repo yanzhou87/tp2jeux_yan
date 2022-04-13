@@ -151,6 +151,9 @@ MonoBehaviour:
   explosion: {fileID: 8003986732107205662, guid: 6a2d63b157353f44f85c32a27400f861, type: 3}
   effetVB: {fileID: 3615554384427421574, guid: f8853c1d960748f478dc1b758bfe842e, type: 3}
   effetPlayer: {fileID: 9184057039807777630, guid: d83eaa84c9e63614494584568d13f3f7, type: 3}
+  lifeObject: {fileID: 3233887965248187018, guid: 41def229ba836f34b9df8599fa003006, type: 3}
+  createLife: 10
+  life: 1
 --- !u!64 &7137151276243688556
 MeshCollider:
   m_ObjectHideFlags: 0
