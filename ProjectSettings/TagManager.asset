@@ -8,6 +8,8 @@ TagManager:
   - Asteroid
   - brigand
   - Missile
+  - life
+  - MissileRose
   layers:
   - Default
   - TransparentFX

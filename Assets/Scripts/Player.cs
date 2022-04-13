@@ -1,15 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public float movementSpeed = 5f, rotationSpeed = 150f;
-
     public GameObject missile, canon;
-    public GameObject explosion, effetVB, effetPlayer, lifeObject;
+    public GameObject explosion, effetVB, effetPlayer, lifeObject, over;
     public float createLife = 10f;
     public int life = 1;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,9 @@ public class Player : MonoBehaviour
             createLife = 10f;
 
         }
+
+
+        Debug.Log(life);
         
     }
 
@@ -53,10 +57,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("brigand"))
         {
             Instantiate(effetVB, other.transform.position, other.transform.rotation);
-           
             life--;
-            if (life == 0) { Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation); Destroy(gameObject); }
-
             Destroy(other.gameObject);
         }
         if (other.CompareTag("life"))
@@ -68,7 +69,13 @@ public class Player : MonoBehaviour
         if (other.CompareTag("MissileRose"))
         {
             life--;
-            if (life == 0) { Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation); Destroy(gameObject); }
+        }
+
+        if (life == 0)
+        {
+            Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+            Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
         }
     }
     }

@@ -24,7 +24,7 @@ public class missileRoseScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Asteroid") || other.CompareTag("Player"))
+        if (other.CompareTag("Asteroid"))
         {
             Instantiate(missileRoseEffet,other.transform.position, other.transform.rotation);
             Destroy(gameObject);

@@ -52,7 +52,7 @@ public class VaisseauTrailleurScript : MonoBehaviour
 
         if (temps < 0)
         {
-            Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
+            Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0f), transform.rotation);
             temps = 5f;
 
         }
