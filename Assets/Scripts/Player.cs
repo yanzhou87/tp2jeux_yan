@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
             Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation);
             life--;
             if (life == 0) { Destroy(gameObject); }
-          
+            Debug.Log(life);
             Destroy(other.gameObject);
         }
         if (other.CompareTag("life"))

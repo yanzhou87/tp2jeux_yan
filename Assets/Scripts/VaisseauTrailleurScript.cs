@@ -22,8 +22,7 @@ public class VaisseauTrailleurScript : MonoBehaviour
     {
         if (player != null)
         { 
-             
-       
+           
         temps -= Time.deltaTime;
 
         if (transform.position.x - player.transform.position.x >= distance.x || transform.position.y - player.transform.position.y >= distance.y)
@@ -41,11 +40,12 @@ public class VaisseauTrailleurScript : MonoBehaviour
             transform.position = player.transform.position + distance;
             transform.Translate(transform.position * Time.deltaTime);
         }
+           // var newPos = transform.position;
+           // newPos.x = Mathf.Clamp(newPos.x, -9, 9);
+           // newPos.y = Mathf.Clamp(newPos.y, -5, 5);
+           // transform.position = newPos;
         }
-        var newPos = transform.position;
-        newPos.x = Mathf.Clamp(newPos.x, -9, 9);
-        newPos.y = Mathf.Clamp(newPos.y, -5, 5);
-        transform.position = newPos;
+       
 
        
            
