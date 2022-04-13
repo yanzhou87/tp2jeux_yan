@@ -7,6 +7,8 @@ public class ScoreManager : MonoBehaviour
 {
 
     private static ScoreManager _instance;
+    public GameObject text;
+
     public static ScoreManager Instance { get { return _instance; } }
 
     private int score = 0;
@@ -23,6 +25,13 @@ public class ScoreManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape))
             SceneManager.LoadScene("MenuScene");
+       
+        if (score == 4) 
+        {
+            Instantiate(text, new Vector3(0f, 0f, 0f), transform.rotation);
+           
+        }
+
     }
 
     public void AddScore(int inc = 1)

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public int life = 1;
     public float tempsMax = 100f;
     Collider lastOther;
-    float seco = 30f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         transform.Rotate(0, 0, -rotation * Time.deltaTime);
@@ -52,22 +51,11 @@ public class Player : MonoBehaviour
         {
            
             Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
-            /*    Debug.Log("seco 3");
-                Debug.Log(seco);
-                while (seco > 0 && over != null)
-                {
-                    Debug.Log("seco while");
-                    Debug.Log(seco);
-                    seco -= Time.deltaTime;
-
-                }
-             */
-            if (tempsMax < -10f)
+           
+            if (tempsMax < -3f )
             {
                 Destroy(over);
                 SceneManager.LoadScene("MenuScene");
-                Debug.Log("seco");
-                Debug.Log(seco);
             }
 
         }
@@ -102,8 +90,16 @@ public class Player : MonoBehaviour
             {
                 Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(gameObject);
-                SceneManager.LoadScene("MenuScene");
                 Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
+                float t = 30f;
+                while (t > 0) 
+                {
+                   t -= Time.deltaTime;
+                }
+                if (t < 0)
+                {
+                    SceneManager.LoadScene("MenuScene");
+                }
             }
         }
     }
