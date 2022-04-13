@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
         if (createLife < 0)
         {
-            Instantiate(lifeObject, transform.position + new Vector3(2f,2f, 0f), transform.rotation);
+            Instantiate(lifeObject, transform.position + new Vector3(3f,3f, 0f), transform.rotation);
             createLife = 10f;
 
         }
