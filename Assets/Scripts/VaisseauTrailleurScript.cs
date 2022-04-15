@@ -65,10 +65,18 @@ public class VaisseauTrailleurScript : MonoBehaviour
        
         if (player != null) {
             temps -= Time.deltaTime;
-          
-            transform.position = Vector3.MoveTowards(transform.position, player.position, movementSpeed * Time.deltaTime);
-            transform.LookAt(player, new Vector3(transform.position.x, transform.position.y, 0));
-            transform.Rotate(0f, -90f, -123f);
+            if (transform.position.x - player.transform.position.x >= distance.x || transform.position.y - player.transform.position.y >= distance.y)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.position, movementSpeed * Time.deltaTime);
+                transform.LookAt(player, new Vector3(transform.position.x, transform.position.y, 0));
+                transform.Rotate(0f, -90f, -123f);
+            }
+            else
+            {
+                transform.LookAt(player, new Vector3(transform.position.x, transform.position.y, 0));
+                transform.Rotate(0f, -90f, -123f);
+            }
+                
 
           
             var rot = transform.rotation.eulerAngles;
