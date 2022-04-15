@@ -810,8 +810,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5069349101803621208, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
+      propertyPath: t
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069349101803621208, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
       propertyPath: tempsMax
-      value: 10
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069349101803621208, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
+      propertyPath: movementSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}

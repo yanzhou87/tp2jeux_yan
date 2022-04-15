@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public float movementSpeed = 5f, rotationSpeed = 150f;
     public GameObject missile, canon;
-    public GameObject explosion, effetVB, effetPlayer, lifeObject, over;
+    public GameObject explosion, effetVB, effetPlayer, lifeObject, over, ast, ast1;
     public float createLife = 10f;
     public int life = 1;
     public float tempsMax = 100f;
@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+       
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         transform.Rotate(0, 0, -rotation * Time.deltaTime);
 
@@ -91,10 +92,12 @@ public class Player : MonoBehaviour
                 Instantiate(effetPlayer, gameObject.transform.position, gameObject.transform.rotation);
                 Destroy(gameObject);
                 Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
-                float t = 30f;
+
+                float t = 100f;
                 while (t > 0) 
                 {
-                   t -= Time.deltaTime;
+            
+                    t -= Time.deltaTime;
                 }
                 if (t < 0)
                 {

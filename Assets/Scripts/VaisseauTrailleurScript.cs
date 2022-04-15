@@ -18,28 +18,75 @@ public class VaisseauTrailleurScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+       void Update()
+       {
+           if (player != null)
+           { 
+
+           temps -= Time.deltaTime;
+
+           if (transform.position.x - player.transform.position.x >= distance.x || transform.position.y - player.transform.position.y >= distance.y)
+           {
+               player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+
+               transform.LookAt(player, new Vector3(transform.position.x, transform.position.y , 0));
+               transform.Rotate(0f, -90f , -123f);
+
+               transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed *2f );
+
+           }
+           else
+           { 
+               transform.position = player.transform.position + distance;
+               transform.Translate(transform.position * Time.deltaTime * movementSpeed *2f);
+           }
+               var newPos = transform.position;
+               newPos.x = Mathf.Clamp(newPos.x, -9, 9);
+               newPos.y = Mathf.Clamp(newPos.y, -5, 5);
+               transform.position = newPos;
+           }
+
+
+
+           var rot = transform.rotation.eulerAngles;
+              rot.x = 0;
+              rot.y = 0;
+           if (temps < 0)
+           {
+               Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0f), Quaternion.Euler(rot));
+               temps = 5f;
+
+           }
+
+       }
+
+   /* void Update()
     {
         if (player != null)
-        { 
-           
-        temps -= Time.deltaTime;
-
-        if (transform.position.x - player.transform.position.x >= distance.x || transform.position.y - player.transform.position.y >= distance.y)
         {
-            player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
-          
-            transform.LookAt(player, new Vector3(transform.position.x, transform.position.y , 0));
-            transform.Rotate(0f, -90f , -123f);
 
-            transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+            temps -= Time.deltaTime;
+            Vector3 relativeDirection = new Vector3();
 
-        }
-        else
-        { 
-            transform.position = player.transform.position + distance;
-            transform.Translate(transform.position * Time.deltaTime);
-        }
+            if ((transform.position.x - player.transform.position.x >= distance.x) || (transform.position.y - player.transform.position.y >= distance.y))
+            {
+                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+
+                transform.LookAt(player, new Vector3(transform.position.x, transform.position.y, 0));
+                transform.Rotate(0f, -90f, -123f);
+
+                // transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+                relativeDirection = -1 * (transform.position - player.transform.position); // Pinky should move towards in this direction
+                transform.position += relativeDirection * Time.deltaTime * (movementSpeed * 0.1f);
+            }
+            else
+            {
+                // transform.position = player.transform.position + distance;
+                // transform.LookAt(player);
+                relativeDirection = transform.position - player.transform.position; // Pinky should move away in this direction
+                // transform.Translate(relativeDirection * Time.deltaTime * movementSpeed);
+                transform.position += relativeDirection * Time.deltaTime * (movementSpeed * 0.1f);
+            }
             var newPos = transform.position;
             newPos.x = Mathf.Clamp(newPos.x, -9, 9);
             newPos.y = Mathf.Clamp(newPos.y, -5, 5);
@@ -49,8 +96,9 @@ public class VaisseauTrailleurScript : MonoBehaviour
 
 
         var rot = transform.rotation.eulerAngles;
-           rot.x = 0;
-           rot.y = 0;
+        rot.x = 0;
+        rot.y = 0;
+
         if (temps < 0)
         {
             Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0f), Quaternion.Euler(rot));
@@ -58,5 +106,5 @@ public class VaisseauTrailleurScript : MonoBehaviour
 
         }
 
-    }
+    }*/
 }
