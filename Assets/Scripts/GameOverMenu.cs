@@ -10,7 +10,6 @@ public class GameOverMenu : MonoBehaviour
     public void Recommencer()
     {
         SceneManager.LoadScene(0);
-        Debug.Log("icicicicici");
     }
  
 }

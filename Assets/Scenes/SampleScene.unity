@@ -815,7 +815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5069349101803621208, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
       propertyPath: tempsMax
-      value: 100
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069349101803621208, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
+      propertyPath: createLife
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5069349101803621208, guid: f6509609e0a31f24a93244a1a6fa27cf, type: 3}
       propertyPath: movementSpeed

@@ -39,7 +39,6 @@ public class Asteroid : MonoBehaviour
 
     public void Explode()
     {
-        //Instantiate(GetComponent("Asteroid"), transform.position, transform.rotation);
         ScoreManager.Instance.AddScore(nbPoints);
         Destroy(gameObject);
     }
