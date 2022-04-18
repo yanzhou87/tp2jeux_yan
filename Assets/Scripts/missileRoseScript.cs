@@ -14,7 +14,9 @@ public class missileRoseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      //  transform.Translate(transform.forward.normalized * Time.deltaTime);
         transform.Translate(0, 2f * Time.deltaTime, 0);
+
     }
 
     private void OnBecameInvisible()

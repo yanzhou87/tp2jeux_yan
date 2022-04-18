@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         var newPos = transform.position;
         newPos.x = Mathf.Clamp(newPos.x, -9, 9);
         newPos.y = Mathf.Clamp(newPos.y, -5, 5);
+        newPos.z = 0;
         transform.position = newPos;
 
         if (Input.GetKeyDown("space"))

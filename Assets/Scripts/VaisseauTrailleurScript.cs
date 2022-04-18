@@ -51,10 +51,16 @@ public class VaisseauTrailleurScript : MonoBehaviour
     }
     void createMissile()
     {
+        Vector3 direction = transform.position - player.position;
+        direction.z = 0;
         var rot = transform.rotation.eulerAngles;
         rot.x = 0;
         rot.y = 0;
-        Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0f), Quaternion.Euler(rot));
+        var nouveauMissille =
+        Instantiate(missile, new Vector3(transform.position.x, transform.position.y, 0),  Quaternion.LookRotation(direction));
+        
+        nouveauMissille.transform.LookAt(player.position, Vector3.up);
+        nouveauMissille.transform.Rotate(90f, 0,0f);
     }
 } 
 
