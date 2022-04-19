@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public float movementSpeed = 5f, rotationSpeed = 150f;
     public GameObject missile, canon;
-    public GameObject explosion, effetVB, effetPlayer, lifeObject, over, ast, ast1;
+    public GameObject explosion, effetVB, effetPlayer, lifeObject, over, ennemisB, ennemisT;
     public float createLife;
     public int life = 1;
     public float tempsMax;
@@ -18,9 +18,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("EndGame", tempsMax);
+        InvokeRepeating("AddEnnemis", tempsMax, tempsMax);
         InvokeRepeating("CreateLife", createLife, createLife);
-        Invoke("Recommence",tempsMax + 3.0f);
+      //  Invoke("Recommence",tempsMax + 3.0f);
     }
 
     // Update is called once per frame
@@ -80,11 +80,18 @@ public class Player : MonoBehaviour
             }
         }
     }
-    private void EndGame()
+    private void AddEnnemis()
     {
-        Instantiate(over, new Vector3(0f, 0f, 0f), transform.rotation);
-        Destroy(gameObject);
-        
+        float x = Random.Range(-5,-9);
+        float y = Random.Range(-5, -9);
+        float x1 = Random.Range(-5, -9);
+        float y1 = Random.Range(-5, -9);
+        Instantiate(ennemisB, new Vector3(x,y,0), transform.rotation);
+        Instantiate(ennemisB);
+        Instantiate(ennemisT, new Vector3(x1, y1, 0), transform.rotation);
+        Instantiate(ennemisT);
+
+
     }
 
     private void Recommence()

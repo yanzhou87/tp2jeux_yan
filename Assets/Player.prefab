@@ -154,8 +154,11 @@ MonoBehaviour:
   effetPlayer: {fileID: 9184057039807777630, guid: d83eaa84c9e63614494584568d13f3f7, type: 3}
   lifeObject: {fileID: 3233887965248187018, guid: 41def229ba836f34b9df8599fa003006, type: 3}
   over: {fileID: 3892373157623947011, guid: f5ca1b36f4ba73646ba09fc103d85190, type: 3}
+  ennemisB: {fileID: 5352262164831434517, guid: 9a3c03826d8e2504886e2c67cad7aed8, type: 3}
+  ennemisT: {fileID: 5205183002761165477, guid: 61c979d117778e145b6d9f373d900c41, type: 3}
   createLife: 10
   life: 1
+  tempsMax: 15
 --- !u!64 &7137151276243688556
 MeshCollider:
   m_ObjectHideFlags: 0
